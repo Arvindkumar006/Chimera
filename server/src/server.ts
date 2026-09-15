@@ -23,7 +23,23 @@ app.use(express.json());
 const combatEngine = new CombatEngine();
 const revenueCatService = new RevenueCatService();
 
-// Health Check
+// Root Index Route
+app.get('/', (_req: Request, res: Response) => {
+  res.json({
+    name: 'Chimera Combat API',
+    description: 'The Flight Simulator for Difficult Conversations',
+    status: 'online',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      scenarios: '/api/scenarios',
+      combat: '/api/combat/start',
+      webhooks: '/api/webhooks/revenuecat',
+    },
+  });
+});
+
+// Health & AI Provider Status
 app.get('/health', (_req: Request, res: Response) => {
   const aiDiagnostics = combatEngine.getAIDiagnostics();
   res.json({

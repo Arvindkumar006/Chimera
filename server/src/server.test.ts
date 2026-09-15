@@ -17,6 +17,14 @@ describe('Chimera Combat API Server', () => {
     server.close(() => done());
   });
 
+  it('GET / returns 200 with online status and endpoints', async () => {
+    const res = await fetch(`${baseUrl}/`);
+    assert.strictEqual(res.status, 200);
+    const body = (await res.json()) as any;
+    assert.strictEqual(body.status, 'online');
+    assert.strictEqual(body.name, 'Chimera Combat API');
+  });
+
   it('GET /health returns 200 with service info', async () => {
     const res = await fetch(`${baseUrl}/health`);
     assert.strictEqual(res.status, 200);
