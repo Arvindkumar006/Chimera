@@ -16,6 +16,10 @@
     "server:dev": "npm run dev --workspace=server",
     "client:dev": "npm run start --workspace=client"
   },
+  "dependencies": {
+    "@types/node": "^22.13.4",
+    "typescript": "^5.7.3"
+  },
   "keywords": [
     "revenuecat",
     "shipaton-2026",
