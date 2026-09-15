@@ -68,7 +68,7 @@ export class AIProviderGateway {
       this.providerName = 'groq';
       this.apiKey = process.env.GROQ_API_KEY;
       this.apiEndpoint = 'https://api.groq.com/openai/v1/chat/completions';
-      this.modelName = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+      this.modelName = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
     } else if (process.env.OPENAI_API_KEY) {
       this.providerName = 'openai';
       this.apiKey = process.env.OPENAI_API_KEY;
